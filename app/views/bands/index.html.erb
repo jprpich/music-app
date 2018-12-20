@@ -1,0 +1,16 @@
+<h1>Hey there here are the bands</h1>
+<a href="<%= new_band_url %>" id="band-create">Create Band!</a>
+<br>
+<br>
+<br>
+
+<% @bands.each do |band| %>
+  <li><a id="single-band" href="<%= band_url(band) %>"><%= band.name %></a></li>
+  <form action="<%= band_url(band) %>" method="POST">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete this!">
+  </form>
+<% end %>
+
+
